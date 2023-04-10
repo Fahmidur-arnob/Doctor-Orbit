@@ -1,0 +1,31 @@
+import React, { useEffect, useState } from 'react';
+import Product from '../Product/Product';
+
+const Shop = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('products.json')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    }, []);
+
+
+    return (
+        <div>
+            <div className='grid grid-cols-3 gap-4 mt-16'>
+                {
+                    products.map(product => <Product    
+                    key = {product.id}
+                    product = {product}
+                    ></Product>)
+                }
+            </div>
+            <div>
+                <h2>Order Summary</h2>
+            </div>
+        </div>
+    );
+};
+
+export default Shop;

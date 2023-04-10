@@ -18,7 +18,8 @@ const Header = ({ props }) => {
         <li>
             <Link to='/' className='rounded-xl font-semibold bg-gradient-to-r from-red-400 to-amber-300 hover:text-black'>Home</Link>
 
-            <Link to='about' className='rounded-xl font-semibold hover:text-black'>About Us</Link>
+            <Link to='/about' className='rounded-xl font-semibold hover:text-black'>About Us</Link>
+            <Link to='/shop' className='rounded-xl font-semibold hover:text-black'>Shop Now</Link>
 
             {
                 user?.uid
