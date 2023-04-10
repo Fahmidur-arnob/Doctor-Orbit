@@ -16,15 +16,6 @@ const BannerSlide = ({ slide }) => {
 
             <div className="absolute flex justify-end transform -translate-y-1/2 left-5 top-1/4">
 
-                {/* <h1 className='font-bold text-gray-50 lg:text-5xl mt-4'>
-                    A room without <br />
-                    <span className='font-semibold text-violet-600'>BOOKS</span><br />
-                    is like a <br />
-                    <span className='font-semibold text-violet-600'>BODY</span><br />
-                    without a <br />
-                    <span className='font-semibold text-violet-600'>SOUL</span>
-                </h1> */}
-
             </div>
 
             <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
