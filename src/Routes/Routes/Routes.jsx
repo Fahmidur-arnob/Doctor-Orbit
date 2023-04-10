@@ -6,6 +6,11 @@ import CreateAccount from "../../Pages/CreateAccount/CreateAccount";
 import About from "../../Pages/About/About";
 import Shop from "../../Pages/Shop/Shop";
 import Cart from "../../Pages/Cart/Cart";
+import Orders from "../../Pages/Orders/Orders";
+import Inventory from "../../Pages/Inventory/Inventory";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
+import Shipping from "../../Pages/Shipping/Shipping";
 
 
 const router = createBrowserRouter([
@@ -34,6 +39,19 @@ const router = createBrowserRouter([
                 loader: () => fetch('products.json'),
                 element:<Shop></Shop>
             },
+            {
+                path:'/orders',
+                loader: productsAndCartLoader,
+                element:<Orders></Orders>
+            },
+            {
+                path:'/inventory',
+                element:<PrivateRoute><Inventory></Inventory></PrivateRoute>
+            },
+            {
+                path:'/shipping',
+                element:<PrivateRoute><Shipping></Shipping></PrivateRoute>
+            }
         ]
     }
 ])
