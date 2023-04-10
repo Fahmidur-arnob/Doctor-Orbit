@@ -1,14 +1,14 @@
 import React from 'react';
 import Banner from './Banner';
 import HomeCard from './HomeCard';
-import FlashDeals from './FlashDeals';
+import DemoCategory from './DemoCategory';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <HomeCard></HomeCard>
-            <FlashDeals ></FlashDeals>
+            <DemoCategory></DemoCategory>
         </div>
     );
 };
