@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Shop.css';
 import Cart from '../Cart/Cart';
-import { addToDb, getStoredCart } from '../../Utilities/DemoDb/DemoDB';
+import { addToDb, getStoredCart, deleteShoppingCart, } from '../../Utilities/DemoDb/DemoDB';
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const products = useLoaderData();
     const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-        fetch('products.json')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    }, []);
+    const clearCart = () =>{
+        setCart([]);
+        deleteShoppingCart();
+    }
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const Shop = () => {
                 }
             </div>
             <div className='cart-information-container mt-16'>
-                <Cart cart = {cart}></Cart>
+                <Cart clearCart = {clearCart} cart = {cart}></Cart>
             </div>
         </div>
     );

@@ -16,7 +16,7 @@ const Header = ({ props }) => {
 
     const menuItems = <React.Fragment>
         <li>
-            <Link to='/' className='rounded-xl font-semibold bg-gradient-to-r from-red-400 to-amber-300 hover:text-black'>Home</Link>
+            <Link to='/' className='rounded-xl font-semibold hover:text-black'>Home</Link>
 
             <Link to='/about' className='rounded-xl font-semibold hover:text-black'>About Us</Link>
             <Link to='/shop' className='rounded-xl font-semibold hover:text-black'>Shop Now</Link>
@@ -55,7 +55,7 @@ const Header = ({ props }) => {
 
                 </div>
 
-                <Link className="btn btn-ghost normal-case text-xl">amaJON</Link>
+                <Link className="btn btn-ghost normal-case text-2xl hover:text-black">amaJON</Link>
 
             </div>
 
@@ -75,10 +75,10 @@ const Header = ({ props }) => {
                         </>
                         :
                         <>
-                            <Link className="btn bg-red-500 rounded-xl border border-gray-50
-                                hover:border-gray-50
+                            <Link className="btn bg-gray-300 text-black rounded-xl border border-gray-50
+                                hover:border-gray-800
                                 hover:text-black
-                                hover:bg-amber-500" to='/signin'>Sign In</Link>
+                                hover:bg-gray-300" to='/signin'>Sign In</Link>
                         </>
                 }
             </div>
