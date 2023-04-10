@@ -93,7 +93,7 @@ const CreateAccount = () => {
 
                     </div>
 
-                    <input type="submit" value="Sign Up" className='btn btn-primary bg-gradient-to-r from-primary to-secondary w-full mt-8' />
+                    <input type="submit" value="Sign Up" className='btn bg-gray-200 text-black hover:text-white hover:bg-gray-500 w-full mt-8' />
 
                     {signUpError && <p className='text-fuchsia-800 font-semibold'>{signUpError}</p>}
                 </form>

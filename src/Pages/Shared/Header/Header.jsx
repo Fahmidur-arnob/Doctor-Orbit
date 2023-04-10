@@ -26,10 +26,8 @@ const Header = ({ props }) => {
                 user?.uid
                     ?
                     <>
-                        <Link className=" text-gray-900 font-semibold rounded-xl" to='/dashboard'>Dashboard</Link>
-                        <span className='text-sm font-semibold'>{user?.displayName}</span>
-
-                        <Link onClick={handleLogOut} className="btn bg-red-700 text-gray-50 rounded-xl hover:bg-amber-900 border border-gray-50">Log Out</Link>
+                        <Link className=" text-black font-semibold rounded-xl hover:text-black" to='/dashboard'>Dashboard</Link>
+                        
                     </>
                     : <></>
             }
@@ -87,7 +85,7 @@ const Header = ({ props }) => {
                 {
                     user?.photoURL
                         ?
-                        <img style={{ height: '30px' }} className="rounded-lg w-12" src={user?.photoURL} title={`${user?.displayName}`} alt="No Img" />
+                        <Link onClick={handleLogOut} className="btn bg-gray-200 text-black hover:text-white hover:bg-gray-500">Log Out</Link>
                         :
                         user?.uid ? <FaUserAlt></FaUserAlt> : <></>
                 }
