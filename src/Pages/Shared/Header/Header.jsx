@@ -27,8 +27,7 @@ const Header = ({ props }) => {
                     ?
                     <>
                         <Link className=" text-gray-900 font-semibold rounded-xl" to='/dashboard'>Dashboard</Link>
-
-                        <Link className=" text-gray-900 font-semibold rounded-xl" to='/blog'>Blog</Link>
+                        <span className='text-sm font-semibold'>{user?.displayName}</span>
 
                         <Link onClick={handleLogOut} className="btn bg-red-700 text-gray-50 rounded-xl hover:bg-amber-900 border border-gray-50">Log Out</Link>
                     </>

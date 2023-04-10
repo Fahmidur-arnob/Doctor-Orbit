@@ -1,14 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithPopup, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import  app  from '../Firebase/firebase.config';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-
-
 const AuthProvider = ({ children }) => {
-    const[user, setUser] = useState(null);
+    const[user, setUser] = useState({});
     const[loading, setLoading] = useState(true);
 
     //create user with password auth;
@@ -31,9 +29,17 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
         });
 
-        return () => unsubscribe();//user create hoile oidate observe kore and upore state er vitore set kore dey and kaj sesh kore
+        return () =>{ 
+            unsubscribe();//user create hoile oidate observe kore and upore state er vitore set kore dey and kaj sesh kore
+        }
 
-    }, [])
+    }, []);
+
+    //google provider login
+    const googleProviderLogin = (googleProvider) =>{
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    }
 
     //for logging out
     const logOut = () =>{
@@ -52,6 +58,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         user,
         updateUser,
+        googleProviderLogin,
         loading
     }
 

@@ -3,15 +3,27 @@ import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Signin = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { googleProviderLogin, signIn } = useContext(AuthContext);
     const [loginError, setLoginErorr] = useState('');
+
+    const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+
+    const handleGoogleLogin = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(`Error is ${error}`));
+    }
 
     const handleLogin = data => {
         console.log("Data is: ", data);//data is an object here;
@@ -22,7 +34,7 @@ const Signin = () => {
                 const user = res.user;
                 console.log(user);
                 toast.success("Login Successfull");
-                navigate(from, {replace:true});
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message);
@@ -77,7 +89,7 @@ const Signin = () => {
                         </label>
                     </div>
 
-                    <input type="submit" value="Login" className='btn btn-primary bg-gradient-to-r from-primary to-secondary w-full' />
+                    <input type="submit" value="Login" className='btn bg-gray-200 hover:text-white hover:bg-gray-500 text-black w-full' />
 
                     <div>
                         {
@@ -85,11 +97,11 @@ const Signin = () => {
                         }
                     </div>
                 </form>
-                <p className='mt-5'>New to Doctor's Portal? <Link to='/createaccount' className='text-secondary font-semibold'>Create New Account</Link></p>
+                <p className='mt-5'>New to amaJON? <Link to='/createaccount' className='text-secondary font-semibold'>Create New Account</Link></p>
 
                 <div className="divider">OR</div>
 
-                <button type="submit" className='btn btn-primary bg-gradient-to-r from-primary to-secondary w-full'>Continue With Google</button>
+                <button type="submit" className='btn bg-gray-200 text-black hover:text-white hover:bg-gray-500 w-full' onClick={handleGoogleLogin} >Continue With Google</button>
             </div>
         </div>
     );
