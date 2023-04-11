@@ -5,7 +5,7 @@ import Header from '../Pages/Shared/Header/Header';
 const DashboardLayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <Header></Header>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
