@@ -5,14 +5,13 @@ import Signin from "../../Pages/Signin/Signin";
 import CreateAccount from "../../Pages/CreateAccount/CreateAccount";
 import About from "../../Pages/About/About";
 import Shop from "../../Pages/Shop/Shop";
-import Cart from '../../Pages/Cart/Cart';
-import Orders from "../../Pages/Orders/Orders";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
 import Shipping from "../../Pages/Shipping/Shipping";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
+import Cart from "../../Pages/Cart/Cart";
 
 
 const router = createBrowserRouter([
@@ -41,19 +40,19 @@ const router = createBrowserRouter([
                 loader: () => fetch('products.json'),
                 element:<Shop></Shop>
             },
+            {
+                path:'/shipping',
+                element:<PrivateRoute><Shipping></Shipping></PrivateRoute>
+            },
+            {
+                path:'/cart',
+                element:<Cart></Cart>
+            }
             // {
             //     path:'/orders',
             //     loader: productsAndCartLoader,
             //     element:<Orders></Orders>
             // },
-            {
-                path:'/inventory',
-                element:<PrivateRoute><Inventory></Inventory></PrivateRoute>
-            },
-            {
-                path:'/shipping',
-                element:<PrivateRoute><Shipping></Shipping></PrivateRoute>
-            }
         ]
     },
     {
