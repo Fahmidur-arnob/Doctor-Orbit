@@ -59,7 +59,7 @@ const Header = ({ props }) => {
 
                 </div>
 
-                <Link to='/' className="btn btn-ghost normal-case text-2xl hover:text-black">amaJON</Link>
+                <Link to='/' className="rounded-xl text-gray-800 font-semibold border-none normal-case text-2xl hover:text-black">AMAJON</Link>
 
             </div>
 
