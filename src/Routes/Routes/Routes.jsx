@@ -7,7 +7,6 @@ import About from "../../Pages/About/About";
 import Shop from "../../Pages/Shop/Shop";
 import Cart from '../../Pages/Cart/Cart';
 import Orders from "../../Pages/Orders/Orders";
-import Inventory from "../../Pages/Inventory/Inventory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
 import Shipping from "../../Pages/Shipping/Shipping";

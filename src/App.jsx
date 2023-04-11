@@ -3,10 +3,9 @@ import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Routes/Routes';
 import { Toaster } from 'react-hot-toast';
 
-
 function App() {
   return (
-    <div className='max-w-[1500px] mx-auto'>
+    <div>
       <RouterProvider router={router}></RouterProvider>
       <Toaster />
     </div>
