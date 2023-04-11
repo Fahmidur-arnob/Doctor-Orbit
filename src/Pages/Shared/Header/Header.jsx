@@ -20,7 +20,6 @@ const Header = ({ props }) => {
 
             <Link to='/about' className='rounded-xl font-semibold hover:text-black'>About Us</Link>
             <Link to='/shop' className='rounded-xl font-semibold hover:text-black'>Shop Now</Link>
-            <Link to='/orders' className='rounded-xl font-semibold hover:text-black'>Orders</Link>
 
             {
                 user?.uid

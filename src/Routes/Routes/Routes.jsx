@@ -5,7 +5,7 @@ import Signin from "../../Pages/Signin/Signin";
 import CreateAccount from "../../Pages/CreateAccount/CreateAccount";
 import About from "../../Pages/About/About";
 import Shop from "../../Pages/Shop/Shop";
-import Cart from "../../Pages/Cart/Cart";
+import Cart from '../../Pages/Cart/Cart';
 import Orders from "../../Pages/Orders/Orders";
 import Inventory from "../../Pages/Inventory/Inventory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -13,6 +13,7 @@ import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
 import Shipping from "../../Pages/Shipping/Shipping";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 
 
 const router = createBrowserRouter([
@@ -41,11 +42,11 @@ const router = createBrowserRouter([
                 loader: () => fetch('products.json'),
                 element:<Shop></Shop>
             },
-            {
-                path:'/orders',
-                loader: productsAndCartLoader,
-                element:<Orders></Orders>
-            },
+            // {
+            //     path:'/orders',
+            //     loader: productsAndCartLoader,
+            //     element:<Orders></Orders>
+            // },
             {
                 path:'/inventory',
                 element:<PrivateRoute><Inventory></Inventory></PrivateRoute>
@@ -58,13 +59,15 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
+        loader: productsAndCartLoader,
         element:<PrivateRoute>
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children:[
             {
                 path:'/dashboard',
-                element:<Dashboard></Dashboard>
+                loader: productsAndCartLoader,
+                element:<MyOrders></MyOrders>
             }
         ]
     }

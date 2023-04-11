@@ -1,11 +1,27 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import Header from '../Pages/Shared/Header/Header';
+import Cart from '../Pages/Cart/Cart';
+import ReviewItem from '../Pages/Orders/ReviewItems/ReviewItems';
 
 const DashboardLayout = () => {
+    const { initialCart } = useLoaderData();  // { products: products, initialCart: initialCart }
+    const [cart, setCart] = useState(initialCart)
+
+    const handleRemoveItem = (id) => {
+        const remaining = cart.filter(product => product.id !== id);
+        setCart(remaining);
+        removeFromDb(id);
+    }
+
+    // const clearCart = () => {
+    //     setCart([]);
+    //     deleteShoppingCart();
+    // }
     return (
         <div>
             <Header></Header>
+            <h3 className='text-3xl text-left mt-16 mb-10'>My Orders</h3>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
@@ -17,11 +33,18 @@ const DashboardLayout = () => {
 
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
 
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li><Link>Sidebar Item 1</Link></li>
-
-                        <li><Link>Sidebar Item 2</Link></li>
-                    </ul>
+                    <div className='orders-container'>
+                        {
+                            cart.map(product => <ReviewItem
+                                key={product.id}
+                                product={product}
+                                handleRemoveItem={handleRemoveItem}
+                            ></ReviewItem>)
+                        }
+                        {
+                            cart.length === 0 && <h2>No Items for Review. Please <Link to="/shop">Shop more</Link></h2>
+                        }
+                    </div>
 
                 </div>
             </div>
