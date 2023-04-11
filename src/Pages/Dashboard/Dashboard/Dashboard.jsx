@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Dashboard = () => {
+
     return (
         <div>
-            <h1>This is Dashboard.</h1>
+            <h1>DB</h1>
         </div>
     );
 };

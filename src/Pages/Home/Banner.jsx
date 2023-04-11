@@ -1,5 +1,5 @@
 import React from 'react';
-import imgOne from '../../assets/images/Eleven.jpg'
+import imgOne from '../../assets/images/One.jpg'
 import imgTwo from '../../assets/images/Two.jpg';
 import imgThree from '../../assets/images/Three.jpg';
 import imgFour from '../../assets/images/Four.jpg';
@@ -34,8 +34,8 @@ const bannerData = [
 
 const Banner = () => {
     return (
-        <div className='w-full mx-auto mt-5'>
-            <div className='carousel object-cover py-2 mx-auto'>
+        <div className='w-[90%] mx-auto'>
+            <div className='carousel py-2 mx-auto'>
                 {
                     bannerData.map(slide => <BannerSlide
                         key={slide.id}

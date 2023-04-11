@@ -25,7 +25,7 @@ const Header = ({ props }) => {
                 user?.uid
                     ?
                     <>
-                        <Link className=" text-black font-semibold rounded-xl hover:text-black" to='/dashboard'>Dashboard</Link>
+                        <Link className=" text-black font-semibold rounded-xl hover:text-black" to='/dashboard'>Admin Section</Link>
 
                         <Link onClick={handleLogOut} className="btn bg-gray-200 text-black hover:text-white hover:bg-gray-500 rounded-xl border border-gray-50">Log Out</Link>
 

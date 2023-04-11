@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import Header from '../Pages/Shared/Header/Header';
 import Cart from '../Pages/Cart/Cart';
 import ReviewItem from '../Pages/Orders/ReviewItems/ReviewItems';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const DashboardLayout = () => {
     const { initialCart } = useLoaderData();  // { products: products, initialCart: initialCart }
-    const [cart, setCart] = useState(initialCart)
+    const [cart, setCart] = useState(initialCart);
+    const { user } = useContext(AuthContext);
 
     const handleRemoveItem = (id) => {
         const remaining = cart.filter(product => product.id !== id);
@@ -45,7 +47,10 @@ const DashboardLayout = () => {
                             cart.length === 0 && <h2>No Items for Review. Please <Link to="/shop">Shop more</Link></h2>
                         }
                     </div>
-
+                </div>
+                <div>
+                    <h3 className='text-3xl font-semibold'>Admin of the site:</h3>
+                    <h5 className='text-xl'>{user?.email}</h5>
                 </div>
             </div>
         </div>

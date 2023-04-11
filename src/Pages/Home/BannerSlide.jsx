@@ -1,4 +1,5 @@
 import React from 'react';
+import './BannerItem.css';
 
 
 const BannerSlide = ({ slide }) => {
@@ -6,10 +7,10 @@ const BannerSlide = ({ slide }) => {
     const { image, id, prev, next } = slide;
 
     return (
-        <div id={`slide${id}`} className="carousel-item relative w-full">
+        <div id={`slide${id}`} className="carousel-item relative w-full h-2/4">
 
 
-            <div>
+            <div className='carousel-img'>
                 <img src={image} alt="" className="rounded-xl" />
             </div>
 

@@ -16,14 +16,14 @@ const Cart = (props) => {
     const grandTotal = total + shipping + tax;
 
     return (
-        <div className='cart'>
+        <div className='cart text-right'>
             <h4>Order Summary</h4>
             <p>Selected Items: {quantity}</p>
             <p>Total price: ${total}</p>
             <p>Total Shipping: ${shipping}</p>
             <p>Tax: {tax}</p>
             <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
-            <button onClick={clearCart}>Clear Cart</button>
+            <button className='mr-5' onClick={clearCart}>Clear Cart</button>
             {children}
         </div>
     );
