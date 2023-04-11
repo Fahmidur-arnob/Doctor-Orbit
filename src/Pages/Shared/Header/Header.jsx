@@ -31,7 +31,10 @@ const Header = ({ props }) => {
 
                     </>
                     : <>
-                        
+                        <Link className="btn bg-gray-300 text-black rounded-xl border border-gray-50
+                                hover:border-gray-800
+                                hover:text-black
+                                hover:bg-gray-300" to='/signin'>Sign In</Link>
                     </>
             }
         </li>
@@ -77,10 +80,7 @@ const Header = ({ props }) => {
                         </>
                         :
                         <>
-                            <Link className="btn bg-gray-300 text-black rounded-xl border border-gray-50
-                                hover:border-gray-800
-                                hover:text-black
-                                hover:bg-gray-300" to='/signin'>Sign In</Link>
+                            
                         </>
                 }
             </div>

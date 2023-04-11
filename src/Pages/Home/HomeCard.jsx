@@ -12,7 +12,7 @@ const HomeCard = () => {
         <>
             <h1 className='text-3xl mt-24 mb-16 font-bold text-center'>amaJON makes life easy and portable just like magic</h1>
 
-            <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 lg:w-full w-96 mx-auto gap-5 mb-24 rounded-lg dark:bg-gray-800 dark:border-gray-700 ">
+            <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 lg:w-full mx-auto gap-5 mb-24 rounded-lg dark:bg-gray-800 dark:border-gray-700 ">
                 <Link >
                     <img className="rounded-lg w-[92%] mx-auto" src={imgOne} alt="" />
                 </Link>
