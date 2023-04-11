@@ -27,9 +27,13 @@ const Header = ({ props }) => {
                     ?
                     <>
                         <Link className=" text-black font-semibold rounded-xl hover:text-black" to='/dashboard'>Dashboard</Link>
+
+                        <Link onClick={handleLogOut} className="btn bg-gray-200 text-black hover:text-white hover:bg-gray-500 rounded-xl border border-gray-50">Log Out</Link>
+
+                    </>
+                    : <>
                         
                     </>
-                    : <></>
             }
         </li>
     </React.Fragment>
@@ -53,7 +57,7 @@ const Header = ({ props }) => {
 
                 </div>
 
-                <Link className="btn btn-ghost normal-case text-2xl hover:text-black">amaJON</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-2xl hover:text-black">amaJON</Link>
 
             </div>
 
@@ -64,6 +68,7 @@ const Header = ({ props }) => {
                 </ul>
 
             </div>
+            
 
             <div className="navbar-end gap-2 mx-4">
                 {
@@ -80,12 +85,18 @@ const Header = ({ props }) => {
                         </>
                 }
             </div>
+            <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+
+            </label>
+            
 
             <div className='mr-2'>
                 {
                     user?.photoURL
                         ?
-                        <Link onClick={handleLogOut} className="btn bg-gray-200 text-black hover:text-white hover:bg-gray-500">Log Out</Link>
+                        <></>
                         :
                         user?.uid ? <FaUserAlt></FaUserAlt> : <></>
                 }

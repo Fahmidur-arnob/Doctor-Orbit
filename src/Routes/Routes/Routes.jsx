@@ -12,6 +12,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
 import Shipping from "../../Pages/Shipping/Shipping";
 import DashboardLayout from "../../Layout/DashboardLayout";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/dashboard',
-                element:<Orders></Orders>
+                element:<Dashboard></Dashboard>
             }
         ]
     }
