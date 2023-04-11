@@ -11,6 +11,7 @@ import Inventory from "../../Pages/Inventory/Inventory";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { productsAndCartLoader } from "../../Loaders/ProductsAndCartLoader";
 import Shipping from "../../Pages/Shipping/Shipping";
+import DashboardLayout from "../../Layout/DashboardLayout";
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,18 @@ const router = createBrowserRouter([
             {
                 path:'/shipping',
                 element:<PrivateRoute><Shipping></Shipping></PrivateRoute>
+            }
+        ]
+    },
+    {
+        path:'/dashboard',
+        element:<PrivateRoute>
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<Orders></Orders>
             }
         ]
     }
